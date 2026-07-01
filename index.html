@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar Calculator | Modern Web App</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-theme">
+    <div class="calculator-wrapper">
+        <div class="calculator-card">
+            <!-- Header with Title & Theme Toggle -->
+            <div class="calculator-header">
+                <div class="logo">
+                    <i class="fa-solid fa-calculator logo-icon"></i>
+                    <span class="brand-title">Stellar Calc</span>
+                </div>
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+                    <span class="toggle-track">
+                        <span class="toggle-thumb">
+                            <i class="fas fa-sun sun-icon"></i>
+                            <i class="fas fa-moon moon-icon"></i>
+                        </span>
+                    </span>
+                </button>
+            </div>
+
+            <!-- Display Screen -->
+            <div class="calculator-display">
+                <div id="history-screen" class="history-screen"></div>
+                <div id="primary-screen" class="primary-screen">0</div>
+            </div>
+
+            <!-- Keypad Grid -->
+            <div class="calculator-keypad">
+                <!-- Row 1 -->
+                <button class="btn btn-action" id="clear" data-action="clear" aria-label="Clear All">C</button>
+                <button class="btn btn-action" id="sign" data-action="sign" aria-label="Toggle Positive/Negative">±</button>
+                <button class="btn btn-action" id="percent" data-action="percent" aria-label="Percentage">%</button>
+                <button class="btn btn-operator" data-operator="/" aria-label="Divide">÷</button>
+
+                <!-- Row 2 -->
+                <button class="btn btn-number" data-value="7">7</button>
+                <button class="btn btn-number" data-value="8">8</button>
+                <button class="btn btn-number" data-value="9">9</button>
+                <button class="btn btn-operator" data-operator="*" aria-label="Multiply">×</button>
+
+                <!-- Row 3 -->
+                <button class="btn btn-number" data-value="4">4</button>
+                <button class="btn btn-number" data-value="5">5</button>
+                <button class="btn btn-number" data-value="6">6</button>
+                <button class="btn btn-operator" data-operator="-" aria-label="Subtract">−</button>
+
+                <!-- Row 4 -->
+                <button class="btn btn-number" data-value="1">1</button>
+                <button class="btn btn-number" data-value="2">2</button>
+                <button class="btn btn-number" data-value="3">3</button>
+                <button class="btn btn-operator" data-operator="+" aria-label="Add">+</button>
+
+                <!-- Row 5 -->
+                <button class="btn btn-number" data-value="0">0</button>
+                <button class="btn btn-number" data-value=".">.</button>
+                <button class="btn btn-action" id="backspace" data-action="backspace" aria-label="Delete last character">
+                    <i class="fas fa-backspace"></i>
+                </button>
+                <button class="btn btn-equals" id="equals" aria-label="Equals">=</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

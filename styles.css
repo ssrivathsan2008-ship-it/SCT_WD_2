@@ -1,0 +1,378 @@
+/* CSS Design System and Custom Properties */
+:root {
+    /* Dark Theme Variables (Default) */
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    --card-bg: rgba(30, 41, 59, 0.45);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --card-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    --text-primary: #f8fafc;
+    --text-muted: #94a3b8;
+    
+    /* Button styles */
+    --btn-num-bg: rgba(255, 255, 255, 0.04);
+    --btn-num-text: #f8fafc;
+    --btn-num-hover: rgba(255, 255, 255, 0.09);
+    
+    --btn-act-bg: rgba(99, 102, 241, 0.1);
+    --btn-act-text: #818cf8;
+    --btn-act-hover: rgba(99, 102, 241, 0.2);
+    
+    --btn-op-bg: rgba(236, 72, 153, 0.1);
+    --btn-op-text: #f472b6;
+    --btn-op-hover: rgba(236, 72, 153, 0.2);
+    
+    --btn-eq-bg: linear-gradient(135deg, #6366f1 0%, #d946ef 100%);
+    --btn-eq-text: #ffffff;
+    --btn-eq-hover: linear-gradient(135deg, #4f46e5 0%, #c084fc 100%);
+    --btn-eq-shadow: 0 8px 20px rgba(99, 102, 241, 0.35);
+
+    --toggle-bg: #334155;
+    --toggle-thumb-bg: #818cf8;
+    
+    --display-bg: rgba(15, 23, 42, 0.6);
+    --display-border: rgba(255, 255, 255, 0.05);
+
+    --transition-speed: 0.3s;
+}
+
+/* Light Theme Variables */
+body.light-theme {
+    --bg-gradient: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    --card-bg: rgba(255, 255, 255, 0.7);
+    --card-border: rgba(0, 0, 0, 0.06);
+    --card-shadow: 0 25px 50px -12px rgba(100, 116, 139, 0.2);
+    --text-primary: #0f172a;
+    --text-muted: #64748b;
+    
+    /* Button styles */
+    --btn-num-bg: rgba(0, 0, 0, 0.03);
+    --btn-num-text: #0f172a;
+    --btn-num-hover: rgba(0, 0, 0, 0.07);
+    
+    --btn-act-bg: rgba(79, 70, 229, 0.08);
+    --btn-act-text: #4f46e5;
+    --btn-act-hover: rgba(79, 70, 229, 0.15);
+    
+    --btn-op-bg: rgba(219, 39, 119, 0.08);
+    --btn-op-text: #db2777;
+    --btn-op-hover: rgba(219, 39, 119, 0.15);
+    
+    --btn-eq-bg: linear-gradient(135deg, #4f46e5 0%, #db2777 100%);
+    --btn-eq-text: #ffffff;
+    --btn-eq-hover: linear-gradient(135deg, #3730a3 0%, #be185d 100%);
+    --btn-eq-shadow: 0 8px 20px rgba(79, 70, 229, 0.25);
+
+    --toggle-bg: #cbd5e1;
+    --toggle-thumb-bg: #4f46e5;
+    
+    --display-bg: rgba(255, 255, 255, 0.8);
+    --display-border: rgba(0, 0, 0, 0.04);
+}
+
+/* Reset & Setup */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Outfit', 'Poppins', sans-serif;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-gradient);
+    transition: background var(--transition-speed) ease;
+    overflow: hidden;
+}
+
+/* Calculator Card with Glassmorphism */
+.calculator-wrapper {
+    position: relative;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.calculator-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, #818cf8, #d946ef);
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.calculator-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    width: 180px;
+    height: 180px;
+    background: linear-gradient(135deg, #22d3ee, #818cf8);
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -1;
+    opacity: 0.4;
+}
+
+.calculator-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 28px;
+    box-shadow: var(--card-shadow);
+    padding: 28px;
+    width: 100%;
+    transition: background var(--transition-speed) ease, 
+                border-color var(--transition-speed) ease, 
+                box-shadow var(--transition-speed) ease;
+}
+
+/* Header section */
+.calculator-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-icon {
+    font-size: 1.2rem;
+    color: var(--btn-act-text);
+    transition: color var(--transition-speed) ease;
+}
+
+.brand-title {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--text-primary);
+    transition: color var(--transition-speed) ease;
+}
+
+/* Theme Toggle Button Styling */
+.theme-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 2px;
+}
+
+.toggle-track {
+    display: block;
+    width: 50px;
+    height: 26px;
+    border-radius: 50px;
+    background-color: var(--toggle-bg);
+    position: relative;
+    transition: background-color var(--transition-speed) ease;
+}
+
+.toggle-thumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1), background-color var(--transition-speed) ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.toggle-thumb i {
+    font-size: 11px;
+    position: absolute;
+    transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.sun-icon {
+    color: #f59e0b;
+    opacity: 0;
+    transform: rotate(-90deg);
+}
+
+.moon-icon {
+    color: #4f46e5;
+    opacity: 1;
+    transform: rotate(0);
+}
+
+body.light-theme .toggle-thumb {
+    transform: translateX(24px);
+    background-color: #ffffff;
+}
+
+body.light-theme .sun-icon {
+    opacity: 1;
+    transform: rotate(0);
+}
+
+body.light-theme .moon-icon {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+/* Display Screen Design */
+.calculator-display {
+    background: var(--display-bg);
+    border: 1px solid var(--display-border);
+    border-radius: 20px;
+    padding: 20px 24px;
+    text-align: right;
+    margin-bottom: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 120px;
+    overflow: hidden;
+    word-break: break-all;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: background var(--transition-speed) ease, border-color var(--transition-speed) ease;
+}
+
+.history-screen {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    min-height: 1.4rem;
+    line-height: 1.4rem;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+}
+
+.history-screen::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+.primary-screen {
+    font-size: 2.4rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    transition: color var(--transition-speed) ease, font-size 0.15s ease;
+}
+
+.primary-screen::-webkit-scrollbar {
+    display: none;
+}
+
+/* Keypad Layout */
+.calculator-keypad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+/* Button Component Styles */
+.btn {
+    border: none;
+    outline: none;
+    height: 64px;
+    border-radius: 18px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                color 0.2s ease, 
+                transform 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.2s ease;
+}
+
+.btn:active {
+    transform: scale(0.92);
+}
+
+/* Button theme styles */
+.btn-number {
+    background-color: var(--btn-num-bg);
+    color: var(--btn-num-text);
+}
+
+.btn-number:hover {
+    background-color: var(--btn-num-hover);
+}
+
+.btn-action {
+    background-color: var(--btn-act-bg);
+    color: var(--btn-act-text);
+}
+
+.btn-action:hover {
+    background-color: var(--btn-act-hover);
+}
+
+.btn-operator {
+    background-color: var(--btn-op-bg);
+    color: var(--btn-op-text);
+}
+
+.btn-operator:hover {
+    background-color: var(--btn-op-hover);
+}
+
+.btn-equals {
+    background: var(--btn-eq-bg);
+    color: var(--btn-eq-text);
+    box-shadow: var(--btn-eq-shadow);
+}
+
+.btn-equals:hover {
+    background: var(--btn-eq-hover);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.45);
+}
+
+/* Active animation via JS class */
+.btn.keyboard-active {
+    transform: scale(0.92);
+    filter: brightness(1.2);
+}
+
+/* Responsive adjustment */
+@media (max-width: 380px) {
+    .calculator-card {
+        padding: 20px;
+    }
+    
+    .btn {
+        height: 56px;
+        font-size: 1.15rem;
+        border-radius: 14px;
+    }
+    
+    .calculator-keypad {
+        gap: 10px;
+    }
+
+    .primary-screen {
+        font-size: 2rem;
+    }
+}
